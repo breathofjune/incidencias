@@ -1,0 +1,19 @@
+# Ignorar la base de datos SQLite
+/database/database.sqlite
+
+# Archivos temporales o de caché
+*.log
+*.tmp
+*.bak
+*.swp
+
+# Configuración específica del entorno local
+.env
+
+# Archivos de sistema o editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+/vendor/
