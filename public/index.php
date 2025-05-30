@@ -1,10 +1,12 @@
 <?php
-/* crear database
+// crear database
+// http://localhost:8000/index.php?init_db
+
 if (isset($_GET['init_db'])) {
     require_once __DIR__ . '/../src/init_db.php';
     exit;
 }
-*/
+
 
 session_start();
 
