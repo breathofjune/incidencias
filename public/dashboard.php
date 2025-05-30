@@ -6,11 +6,7 @@ if (!isset($_SESSION['user_id'])) {
     exit;
 }
 
-require_once __DIR__ . '/../src/db.php';
-
-$stmt = $db->prepare("SELECT * FROM incidencias WHERE user_id = :user_id ORDER BY id DESC");
-$stmt->execute([':user_id' => $_SESSION['user_id']]);
-$incidencias = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$username = $_SESSION['username'];
 ?>
 
 <!DOCTYPE html>
@@ -19,6 +15,7 @@ $incidencias = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <head>
     <meta charset="UTF-8">
     <title>Panel de Usuario</title>
+    <link rel="stylesheet" href="css/dashboard.css">
 </head>
 
 <body>
@@ -29,24 +26,11 @@ $incidencias = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     <h2>Mis incidencias</h2>
 
-    <?php if (count($incidencias) > 0): ?>
-        <ul>
-            <?php foreach ($incidencias as $inc): ?>
-                <li>
-                    <strong><?= htmlspecialchars($inc['titulo']) ?></strong><br>
-                    <?= nl2br(htmlspecialchars($inc['descripcion'])) ?><br>
-                    <em>Ubicación: <?= htmlspecialchars($inc['localizacion']) ?></em><br>
-                    <em>Estado: <?= htmlspecialchars(ucfirst($inc['estado'])) ?></em><br>
-                    <a href="editar_incidencia.php?id=<?= $inc['id'] ?>">Editar</a> |
-                    <a href="eliminar_incidencia.php?id=<?= $inc['id'] ?>"
-                        onclick="return confirm('¿Estás seguro de que deseas eliminar esta incidencia?');">Eliminar</a>
-                </li>
+    <div id="incidencias-container">
+        <p>Cargando incidencias...</p>
+    </div>
 
-            <?php endforeach; ?>
-        </ul>
-    <?php else: ?>
-        <p>No has registrado ninguna incidencia todavía.</p>
-    <?php endif; ?>
+    <script src="js/dashboard.js"></script>
 </body>
 
 </html>
