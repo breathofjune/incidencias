@@ -1,0 +1,44 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 2rem;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+h1, h2 {
+    color: #444;
+}
+
+a {
+    color: #007BFF;
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+}
+
+a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+#lista-incidencias em {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+#incidencias-container {
+    font-style: italic;
+    color: #666;
+    margin-bottom: 2rem;
+}
+
+.incidencia {
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 1rem;
+}
+
+#lista {
+    margin-top: 1rem;
+}

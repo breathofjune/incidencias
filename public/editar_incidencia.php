@@ -61,6 +61,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <title>Editar Incidencia</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/formularios.css">
 </head>
 
 <body>
