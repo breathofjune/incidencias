@@ -1,4 +1,7 @@
 <?php
+//crear database
+//http://localhost:8000/index.php?init_db
+
 require_once __DIR__ . '/db.php';
 
 try {
@@ -20,6 +23,7 @@ try {
     )");
 
     echo "Tablas 'users' e 'incidencias' creadas o ya existentes.";
+    echo '<br><a href="index.php">Ir al inicio<a>';
 
 } catch (PDOException $e) {
     echo "Error creando tablas: " . $e->getMessage();
