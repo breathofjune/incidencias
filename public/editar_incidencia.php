@@ -61,6 +61,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <title>Editar Incidencia</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/formularios.css">
 </head>
 
 <body>
@@ -92,10 +94,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </label><br><br>
 
         <button type="submit">Actualizar</button>
+        <button type="button" onclick="window.location.href='dashboard.php';">Volver al panel</button>
     </form>
 
     <p><?= htmlspecialchars($message) ?></p>
-    <a href="dashboard.php">Volver al panel</a>
+    
+    <script src="js/formularios.js"></script>
 </body>
 
 </html>

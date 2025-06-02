@@ -16,14 +16,20 @@ $username = $_SESSION['username'];
     <meta charset="UTF-8">
     <title>Panel de Usuario</title>
     <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
     <h1>Bienvenido, <?= htmlspecialchars($_SESSION['username']) ?>!</h1>
 
-    <a href="crear_incidencia.php">+ Nueva incidencia</a> |
-    <a href="logout.php">Cerrar sesión</a>
-
+    <nav class="acciones">
+        <form action="crear_incidencia.php" method="get">
+            <button type="submit" class="boton boton-verde">+ Nueva incidencia</button>
+        </form>
+        <form action="logout.php" method="post">
+            <button type="submit" class="boton boton-rojo">Cerrar sesión</button>
+        </form>
+    </nav>
     <h2>Mis incidencias</h2>
 
     <div id="incidencias-container">

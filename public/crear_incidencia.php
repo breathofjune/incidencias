@@ -37,6 +37,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <title>Crear Incidencia</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/formularios.css">
 </head>
 
 <body>
@@ -47,9 +49,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <label>Localización:<br><input type="text" name="localizacion" required></label><br>
         <br>
         <button type="submit">Crear</button>
+        <button type="button" onclick="window.location.href='dashboard.php';">Volver al panel</button>
     </form>
     <p><?= htmlspecialchars($message) ?></p>
-    <a href="dashboard.php">Volver al panel</a>
 </body>
 
 </html>

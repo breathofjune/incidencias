@@ -32,18 +32,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <title>Registro</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/auth.css">
 </head>
+
 <body>
-    <h1>Registro de usuario</h1>
-    <form method="post">
-        <label>Usuario: <input type="text" name="username" required></label><br><br>
-        <label>Contraseña: <input type="password" name="password" required></label><br><br>
-        <button type="submit">Registrarse</button>
-    </form>
-    <p><?= htmlspecialchars($message) ?></p>
-    <a href="/login.php">Inicia sesión</a>
+    <div class="auth-container">
+        <h1>Registro de usuario</h1>
+        <form method="post">
+            <label for="username">Usuario:</label>
+            <input type="text" name="username" required><br><br>
+
+            <label for="password">Contraseña:</label>
+            <input type="password" name="password" required><br><br>
+
+            <button type="submit">Registrarse</button>
+        </form>
+        <p><?= htmlspecialchars($message) ?></p>
+        <a href="/login.php">¿Ya tienes cuenta? Inicia sesión</a>
+    </div>
 </body>
+
 </html>

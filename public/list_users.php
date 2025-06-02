@@ -10,6 +10,7 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <head>
     <meta charset="UTF-8">
     <title>Usuarios registrados</title>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <h1>Usuarios registrados</h1>

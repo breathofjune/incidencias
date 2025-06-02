@@ -1,19 +1,143 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 2rem;
-}
-
 ul {
     list-style: none;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 
 li {
     border: 1px solid #ccc;
     padding: 1rem;
     margin-bottom: 1rem;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+li strong {
+    font-size: 1.2rem;
+    color: #007bff;
+}
+
+.acciones {
+    margin-top: 0.5rem;
 }
 
 .acciones a {
-    margin-right: 10px;
+    margin-right: 1rem;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+nav.acciones {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.acciones form {
+    margin: 0;
+}
+
+.boton {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    color: white;
+}
+
+.boton-verde {
+    background-color: #28a745;
+}
+
+.boton-verde:hover {
+    background-color: #218838;
+    transform: scale(1.03);
+}
+
+.boton-rojo {
+    background-color: #dc3545;
+}
+
+.boton-rojo:hover {
+    background-color: #c82333;
+    transform: scale(1.03);
+}
+
+.boton-editar {
+    background-color: #007bff;
+}
+
+.boton-editar:hover {
+    background-color: #0056b3;
+}
+
+.boton-borrar {
+    background-color: #dc3545;
+}
+
+.boton-borrar:hover {
+    background-color: #a71d2a;
+}
+
+#mensajes {
+    margin-bottom: 1rem;
+    font-style: italic;
+    color: #555;
+}
+
+.grid-incidencias {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    padding: 0;
+    list-style: none;
+    margin-top: 2rem;
+}
+
+.tarjeta-incidencia {
+    background-color: #f9f9f9;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Estilos base */
+.incidencia {
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    padding: 1rem;
+    margin: 1rem;
+    transition: transform 0.2s;
+    flex: 1 1 300px;
+}
+
+/* Estilo para cada estado */
+.estado-abierta {
+    border-color: #28a745;
+    background-color: #e6f9ec;
+}
+
+.estado-en-proceso {
+    border-color: #ffc107;
+    background-color: #fffbe6;
+}
+
+.estado-cerrada {
+    border-color: #dc3545;
+    background-color: #fdecea;
+}
+
+/* Hover para destacar */
+.incidencia:hover {
+    transform: scale(1.02);
 }
