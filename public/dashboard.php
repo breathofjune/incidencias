@@ -32,6 +32,21 @@ $username = $_SESSION['username'];
     </nav>
     <h2>Mis incidencias</h2>
 
+    <div id="filtros-dashboard">
+        <label for="filtro-estado">Filtrar por estado:</label>
+        <select id="filtro-estado">
+            <option value="todos">Todos</option>
+            <option value="abierta">Abiertas</option>
+            <option value="en proceso">En proceso</option>
+            <option value="cerrada">Cerradas</option>
+        </select>
+
+        <label for="buscador">Buscar:</label>
+        <input type="text" id="buscador" placeholder="Buscar por título, descripción o ubicación...">
+    </div>
+
+
+
     <div id="incidencias-container">
         <p>Cargando incidencias...</p>
     </div>
