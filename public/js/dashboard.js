@@ -12,6 +12,14 @@ function cargarIncidencias() {
                     const list = document.createElement('ul');
                     list.classList.add('grid-incidencias');
 
+                    const ordenEstados = {
+                        'abierta': 0,
+                        'en proceso': 1,
+                        'cerrada': 2
+                    };
+
+                    data.sort((a, b) => ordenEstados[a.estado] - ordenEstados[b.estado]);
+
                     data.forEach(inc => {
                         const li = document.createElement('li');
                         li.classList.add(
