@@ -45,11 +45,11 @@ $username = $_SESSION['username'];
         <input type="text" id="buscador" placeholder="Buscar por título, descripción o ubicación...">
     </div>
 
+    <div id="incidencias-container"></div>
+    <div id="paginacion-container" class="paginacion"></div>
 
 
-    <div id="incidencias-container">
-        <p>Cargando incidencias...</p>
-    </div>
+    <div id="incidencias-container"></div>
 
     <script src="js/dashboard.js"></script>
 </body>

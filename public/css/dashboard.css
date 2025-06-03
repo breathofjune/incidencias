@@ -105,7 +105,7 @@ nav.acciones {
     background-color: #f9f9f9;
     padding: 1rem;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -174,4 +174,29 @@ nav.acciones {
 
 #buscador {
     width: 305px;
+}
+
+.paginacion {
+    margin-top: 1em;
+    text-align: center;
+}
+
+.paginacion button {
+    margin: 0 0.2em;
+    padding: 0.3em 0.6em;
+    color: white;
+    border: 1px solid #333;
+    border-radius: 20px;
+    background: #007bff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.paginacion button:disabled {
+    background: #ccc;
+    cursor: default;
+}
+
+.paginacion button :hover {
+    background-color: #0056b3;
 }
