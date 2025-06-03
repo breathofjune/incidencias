@@ -67,6 +67,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <body>
     <h1>Editar Incidencia</h1>
+    
+    <div id="mensaje-confirmacion" class="oculto"></div>
     <form method="post">
         <label>Título:<br>
             <input type="text" name="titulo" required value="<?= htmlspecialchars($incidencia['titulo']) ?>">
@@ -96,9 +98,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <button type="submit">Actualizar</button>
         <button type="button" onclick="window.location.href='dashboard.php';">Volver al panel</button>
     </form>
-
-    <p><?= htmlspecialchars($message) ?></p>
     
+    <p><?= htmlspecialchars($message) ?></p>    
+
     <script src="js/formularios.js"></script>
 </body>
 

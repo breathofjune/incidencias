@@ -43,6 +43,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <body>
     <h1>Nueva Incidencia</h1>
+    
+    <div id="mensaje-confirmacion" class="oculto"></div>
     <form method="post">
         <label>Título:<br><input type="text" name="titulo" required></label><br><br>
         <label>Descripción:<br><textarea name="descripcion" required></textarea></label><br>
@@ -51,7 +53,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <button type="submit">Crear</button>
         <button type="button" onclick="window.location.href='dashboard.php';">Volver al panel</button>
     </form>
+    
     <p><?= htmlspecialchars($message) ?></p>
+
+    <script src="js/formularios.js"></script>
+
 </body>
 
 </html>
