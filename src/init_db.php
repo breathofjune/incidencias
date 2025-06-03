@@ -23,7 +23,15 @@ try {
         FOREIGN KEY (user_id) REFERENCES users(id)
     )");
 
-    echo "Tablas 'users' e 'incidencias' creadas o ya existentes.";
+    $db->exec("CREATE TABLE IF NOT EXISTS imagenes (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        incidencia_id INTEGER NOT NULL,
+        RUTA TEXT NOT NULL,
+        FOREIGN KEY (incidencia_id) REFERENCES incidencias(id) ON DELETE CASCADE
+);
+");
+
+    echo "Tablas 'users', 'incidencias' e imagenes creadas o ya existentes.";
     echo '<br><a href="index.php">Ir al inicio<a>';
 
 } catch (PDOException $e) {

@@ -45,6 +45,7 @@ function cargarIncidencias(pagina = 1) {
                     <em>Creada el: ${formatearFecha(inc.fecha_creacion)}</em><br>
                     ${inc.fecha_modificacion ? `<em>Modificada el: ${formatearFecha(inc.fecha_modificacion)}</em><br>` : ''}
                     <div class="acciones-incidencia">
+                        <button class="boton boton-ver" onclick="verIncidencia(${inc.id})">Ver</button>
                         <button class="boton boton-editar" onclick="editarIncidencia(${inc.id})">Editar</button>
                         <button class="boton boton-borrar" onclick="eliminarIncidencia(${inc.id})">Eliminar</button>
                     </div>
@@ -119,6 +120,9 @@ function formatearFecha(fechaISO) {
     });
 }
 
+function verIncidencia(id) {
+    window.location.href = `ver_incidencia.php?id=${id}`;
+}
 
 function editarIncidencia(id) {
     window.location.href = `editar_incidencia.php?id=${id}`;
