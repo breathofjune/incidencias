@@ -11,7 +11,7 @@ if (!isset($_SESSION['user_id'])) {
 require_once __DIR__ . '/../../src/db.php';
 
 try {
-    $stmt = $db->prepare("SELECT id, titulo, descripcion, localizacion, estado, fecha_creacion FROM incidencias WHERE user_id = :user_id");
+    $stmt = $db->prepare("SELECT id, titulo, descripcion, localizacion, estado, fecha_creacion, fecha_modificacion FROM incidencias WHERE user_id = :user_id");
     $stmt->execute([':user_id' => $_SESSION['user_id']]);
     $incidencias = $stmt->fetchAll(PDO::FETCH_ASSOC);
 

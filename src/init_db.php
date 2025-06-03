@@ -19,6 +19,7 @@ try {
         localizacion TEXT,
         estado TEXT NOT NULL DEFAULT 'abierta',
         fecha_creacion DATETIME DEFAULT CURRENT_TIMESTAMP,
+        fecha_modificacion DATETIME,
         FOREIGN KEY (user_id) REFERENCES users(id)
     )");
 

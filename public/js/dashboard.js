@@ -13,7 +13,6 @@ function cargarIncidencias() {
                 } else {
                     incidenciasTotales = data;
 
-                    // Ordenar por estado: abierta > en proceso > cerrada
                     const ordenEstados = {
                         'abierta': 0,
                         'en proceso': 1,
@@ -22,7 +21,7 @@ function cargarIncidencias() {
 
                     incidenciasTotales.sort((a, b) => ordenEstados[a.estado] - ordenEstados[b.estado]);
 
-                    aplicarFiltros(); // Mostrar después de ordenar
+                    aplicarFiltros();
                 }
             } else if (data.message) {
                 container.innerHTML = `<p>${data.message}</p>`;
@@ -69,6 +68,8 @@ function aplicarFiltros() {
             ${inc.descripcion.replace(/\n/g, '<br>')}<br>
             <em>Ubicación: ${inc.localizacion}</em><br>
             <em>Estado: ${inc.estado}</em><br>
+            <em>Creada el: ${formatearFecha(inc.fecha_creacion)}</em><br>
+            ${inc.fecha_modificacion ? `<em>Modificada el: ${formatearFecha(inc.fecha_modificacion)}</em><br>` : ''}
             <div class="acciones-incidencia">
                 <button class="boton boton-editar" onclick="editarIncidencia(${inc.id})">Editar</button>
                 <button class="boton boton-borrar" onclick="eliminarIncidencia(${inc.id})">Eliminar</button>
@@ -80,6 +81,18 @@ function aplicarFiltros() {
 
     container.appendChild(list);
 }
+
+function formatearFecha(fechaISO) {
+    const fecha = new Date(fechaISO);
+    return fecha.toLocaleString('es-ES', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+    });
+}
+
 
 function editarIncidencia(id) {
     window.location.href = `editar_incidencia.php?id=${id}`;

@@ -10,14 +10,12 @@ require_once __DIR__ . '/../src/db.php';
 
 $message = '';
 
-// Validar que venga id por GET y sea numérico
 if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
     die('Incidencia no válida.');
 }
 
 $incidencia_id = (int) $_GET['id'];
 
-// Comprobar que la incidencia pertenece al usuario
 $stmt = $db->prepare("SELECT * FROM incidencias WHERE id = :id AND user_id = :user_id");
 $stmt->execute([':id' => $incidencia_id, ':user_id' => $_SESSION['user_id']]);
 $incidencia = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -33,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $estado = trim($_POST['estado'] ?? '');
 
     if ($titulo && $descripcion && $localizacion && $estado) {
-        $update = $db->prepare("UPDATE incidencias SET titulo = :titulo, descripcion = :descripcion, localizacion = :localizacion, estado = :estado WHERE id = :id AND user_id = :user_id");
+        $update = $db->prepare("UPDATE incidencias SET titulo = :titulo, descripcion = :descripcion, localizacion = :localizacion, estado = :estado, fecha_modificacion = CURRENT_TIMESTAMP WHERE id = :id AND user_id = :user_id");
         $update->execute([
             ':titulo' => $titulo,
             ':descripcion' => $descripcion,
@@ -46,7 +44,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         header('Location: dashboard.php');
 
-        // Recargar datos para mostrar formulario actualizado
         $stmt->execute([':id' => $incidencia_id, ':user_id' => $_SESSION['user_id']]);
         $incidencia = $stmt->fetch(PDO::FETCH_ASSOC);
     } else {
