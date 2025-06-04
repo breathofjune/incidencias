@@ -31,6 +31,7 @@ try {
                                 WHEN LOWER(estado) = 'cerrada' THEN 3
                                 ELSE 4
                             END,
+                            COALESCE(fecha_modificacion, fecha_creacion) DESC,
                             fecha_creacion DESC
                         LIMIT :limit OFFSET :offset");
 
