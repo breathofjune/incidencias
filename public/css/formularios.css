@@ -1,5 +1,5 @@
 form {
-    max-width: 600px;
+    max-width: 80%;
     margin: 2rem auto;
     padding: 2rem;
     background-color: #f9f9f9;
@@ -7,6 +7,11 @@ form {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 2rem;
 }
 
 label {
@@ -23,9 +28,12 @@ textarea {
     border-radius: 6px;
     font-size: 1rem;
     resize: vertical;
+    width: 45%;
+    min-width: 270px;
 }
 
 button {
+    width: 15rem;
     margin-top: 1.5rem;
     padding: 0.8rem 1.2rem;
     background-color: #007bff;
@@ -82,4 +90,48 @@ select:focus {
 
 #mensaje-confirmacion.visible {
     display: block;
+}
+
+.galeria-imagenes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 10px;
+}
+.imagen-contenedor {
+    position: relative;
+    max-width: 200px;
+    text-align: center;
+}
+.imagen-contenedor img {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+.imagen-contenedor img:hover {
+    transform: scale(1.05);
+}
+.imagen-contenedor label {
+    display: block;
+    margin-top: 5px;
+    font-size: 0.9em;
+}
+
+.boton-subir-imagenes {
+    max-width: 15rem;
+    background-color: #2d89ef;
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.boton-subir-imagenes:hover {
+    background-color: #1b5fbd;
 }

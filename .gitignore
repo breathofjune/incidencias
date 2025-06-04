@@ -17,3 +17,9 @@ Thumbs.db
 .idea/
 
 /vendor/
+
+# Ignorar
+/public/uploads/*.jpg
+/public/uploads/*.jpeg
+/public/uploads/*.png
+/public/uploads/*.webp

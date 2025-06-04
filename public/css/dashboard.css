@@ -86,6 +86,14 @@ nav.acciones {
     background-color: #a71d2a;
 }
 
+.boton-ver {
+    background-color: #007bff;
+}
+
+.boton-ver:hover {
+    background-color: #0056b3;
+}
+
 #mensajes {
     margin-bottom: 1rem;
     font-style: italic;
