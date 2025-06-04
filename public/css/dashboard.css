@@ -94,6 +94,14 @@ nav.acciones {
     background-color: #0056b3;
 }
 
+.boton-totales {
+    background-color: #007bff;
+}
+
+.boton-totales:hover {
+    background-color: #0056b3;
+}
+
 #mensajes {
     margin-bottom: 1rem;
     font-style: italic;

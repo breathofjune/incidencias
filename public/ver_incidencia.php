@@ -14,10 +14,9 @@ if ($id <= 0) {
 }
 
 // Obtener la incidencia
-$stmt = $db->prepare("SELECT * FROM incidencias WHERE id = :id AND user_id = :user_id");
+$stmt = $db->prepare("SELECT * FROM incidencias WHERE id = :id");
 $stmt->execute([
-    ':id' => $id,
-    ':user_id' => $_SESSION['user_id']
+    ':id' => $id
 ]);
 $incidencia = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -49,10 +48,13 @@ $imagenes = $stmtImgs->fetchAll(PDO::FETCH_ASSOC);
     <p><strong>Descripción:</strong><br><?= nl2br(htmlspecialchars($incidencia['descripcion'])) ?></p>
     <p><strong>Localización:</strong> <?= htmlspecialchars($incidencia['localizacion']) ?></p>
     <p><strong>Estado:</strong> <?= htmlspecialchars($incidencia['estado']) ?></p>
-    <p><strong>Fecha de creación:</strong> <?= htmlspecialchars($incidencia['fecha_creacion']) ?></p>
-    <?php if ($incidencia['fecha_modificacion']): ?>
-        <p><strong>Fecha de modificación:</strong> <?= htmlspecialchars($incidencia['fecha_modificacion']) ?></p>
+    <p><strong>Creada por: <?= htmlspecialchars($incidencia['creado_por']) ?> el
+            <?= date("d/m/Y H:i", strtotime($incidencia['fecha_creacion'])) ?></strong></p>
+    <?php if (!empty($incidencia['fecha_modificacion'])): ?>
+        <p><strong>Modificada por: <?= htmlspecialchars($incidencia['modificado_por']) ?> el
+                <?= date("d/m/Y H:i", strtotime($incidencia['fecha_modificacion'])) ?></strong></p>
     <?php endif; ?>
+
 
     <?php if (!empty($imagenes)): ?>
         <h3>Imágenes asociadas</h3>

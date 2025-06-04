@@ -29,9 +29,9 @@ $username = $_SESSION['username'];
         <form action="logout.php" method="post">
             <button type="submit" class="boton boton-rojo">Cerrar sesión</button>
         </form>
-        <button type="button" class="boton boton-totales" onclick="window.location.href='incidencias_totales.php';">Todas las incidencias</button>
+        <button type="button" class="boton boton-totales" onclick="window.location.href='dashboard.php';">Volver al panel</button>
     </nav>
-    <h2>Mis incidencias</h2>
+    <h2>Todas las incidencias</h2>
 
     <div id="filtros-dashboard">
         <label for="filtro-estado">Filtrar por estado:</label>
@@ -48,6 +48,7 @@ $username = $_SESSION['username'];
 
     <div id="incidencias-container"></div>
     <div id="paginacion-container" class="paginacion"></div>
+
 
     <div id="incidencias-container"></div>
 

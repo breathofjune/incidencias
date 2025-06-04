@@ -6,7 +6,7 @@ let totalIncidencias = 0;
 function cargarIncidencias(pagina = 1) {
     const container = document.getElementById('incidencias-container');
     container.innerHTML = '<p>Cargando incidencias...</p>';
-    fetch(`api/incidencias.php?page=${pagina}&limit=${porPagina}`)
+    fetch(`api/incidencias_totales.php?page=${pagina}&limit=${porPagina}`)
         .then(res => res.json())
         .then(data => {
             if (data.error) {
@@ -36,8 +36,8 @@ function cargarIncidencias(pagina = 1) {
                     ${inc.descripcion.replace(/\n/g, '<br>')}<br>
                     <em>Ubicación: ${inc.localizacion}</em><br>
                     <em>Estado: ${inc.estado}</em><br>
-                    <em>Creada por: ${inc.creado_por} el ${formatearFecha(inc.fecha_creacion)}</em><br>
-                    ${inc.fecha_modificacion ? `<em>Modificada por: ${inc.modificado_por} el ${formatearFecha(inc.fecha_modificacion)}</em><br>` : ''}
+                    <em>Creada el: ${formatearFecha(inc.fecha_creacion)}</em><br>
+                    ${inc.fecha_modificacion ? `<em>Modificada el: ${formatearFecha(inc.fecha_modificacion)}</em><br>` : ''}
                     <div class="acciones-incidencia">
                         <button class="boton boton-ver" onclick="verIncidencia(${inc.id})">Ver</button>
                         <button class="boton boton-editar" onclick="editarIncidencia(${inc.id})">Editar</button>
@@ -91,6 +91,8 @@ function aplicarFiltros() {
             <em>Estado: ${inc.estado}</em><br>
             <em>Creada el: ${formatearFecha(inc.fecha_creacion)}</em><br>
             ${inc.fecha_modificacion ? `<em>Modificada el: ${formatearFecha(inc.fecha_modificacion)}</em><br>` : ''}
+            ${inc.creado_por ? `<em>Creado por: ${inc.creado_por}</em><br>` : ''}
+            ${inc.modificado_por ? `<em>Modificado por: ${inc.modificado_por}</em><br>` : ''}
             <div class="acciones-incidencia">
                 <button class="boton boton-ver" onclick="verIncidencia(${inc.id})">Ver</button>
                 <button class="boton boton-editar" onclick="editarIncidencia(${inc.id})">Editar</button>

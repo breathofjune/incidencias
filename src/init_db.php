@@ -20,6 +20,8 @@ try {
         estado TEXT NOT NULL DEFAULT 'abierta',
         fecha_creacion DATETIME DEFAULT CURRENT_TIMESTAMP,
         fecha_modificacion DATETIME,
+        creado_por TEXT,
+        modificado_por TEXT,
         FOREIGN KEY (user_id) REFERENCES users(id)
     )");
 
@@ -28,8 +30,8 @@ try {
         incidencia_id INTEGER NOT NULL,
         RUTA TEXT NOT NULL,
         FOREIGN KEY (incidencia_id) REFERENCES incidencias(id) ON DELETE CASCADE
-);
-");
+    );
+    ");
 
     echo "Tablas 'users', 'incidencias' e 'imagenes' creadas o ya existentes.";
     echo '<br><a href="index.php">Ir al inicio<a>';

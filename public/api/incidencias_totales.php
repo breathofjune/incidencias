@@ -15,15 +15,15 @@ $limit = isset($_GET['limit']) ? max(1, intval($_GET['limit'])) : 10;
 $offset = ($page - 1) * $limit;
 
 try {
-    // Obtener total de incidencias para el usuario
-    $stmtTotal = $db->prepare("SELECT COUNT(*) FROM incidencias WHERE user_id = :user_id");
-    $stmtTotal->execute([':user_id' => $_SESSION['user_id']]);
+    // Obtener total de incidencias
+    $stmtTotal = $db->prepare("SELECT COUNT(*) FROM incidencias");
+    $stmtTotal->execute();
     $total = $stmtTotal->fetchColumn();
+    
 
     // Obtener incidencias paginadas
     $stmt = $db->prepare("SELECT id, titulo, descripcion, localizacion, estado, fecha_creacion, fecha_modificacion, creado_por, modificado_por 
                         FROM incidencias 
-                        WHERE user_id = :user_id 
                         ORDER BY 
                             CASE 
                                 WHEN LOWER(estado) = 'abierta' THEN 1
@@ -35,7 +35,6 @@ try {
                             fecha_creacion DESC
                         LIMIT :limit OFFSET :offset");
 
-    $stmt->bindValue(':user_id', $_SESSION['user_id'], PDO::PARAM_INT);
     $stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
     $stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
     $stmt->execute();
