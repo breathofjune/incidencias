@@ -94,12 +94,13 @@ nav.acciones {
     background-color: #0056b3;
 }
 
-.boton-totales {
+.boton-azul {
     background-color: #007bff;
 }
 
-.boton-totales:hover {
+.boton-azul:hover {
     background-color: #0056b3;
+    transform: scale(1.03);
 }
 
 #mensajes {

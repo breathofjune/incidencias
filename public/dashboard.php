@@ -29,7 +29,10 @@ $username = $_SESSION['username'];
         <form action="logout.php" method="post">
             <button type="submit" class="boton boton-rojo">Cerrar sesión</button>
         </form>
-        <button type="button" class="boton boton-totales" onclick="window.location.href='incidencias_totales.php';">Todas las incidencias</button>
+        <form action="editar_perfil.php" method="get">
+            <button type="submit" class="boton boton-azul">Editar perfil</button>
+        </form>
+        <button type="button" class="boton boton-azul" onclick="window.location.href='incidencias_totales.php';">Todas las incidencias</button>
     </nav>
     <h2>Mis incidencias</h2>
 

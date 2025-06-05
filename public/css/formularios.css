@@ -22,7 +22,8 @@ label {
 }
 
 input[type="text"],
-textarea {
+textarea,
+input[type="password"] {
     padding: 0.7rem;
     border: 1px solid #ccc;
     border-radius: 6px;
