@@ -33,14 +33,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $estado = trim($_POST['estado'] ?? '');
 
     if ($titulo && $descripcion && $localizacion && $estado) {
-        $update = $db->prepare("UPDATE incidencias SET titulo = :titulo, descripcion = :descripcion, localizacion = :localizacion, estado = :estado, fecha_modificacion = CURRENT_TIMESTAMP WHERE id = :id AND user_id = :user_id");
+        $update = $db->prepare("UPDATE incidencias SET titulo = :titulo, descripcion = :descripcion, localizacion = :localizacion, estado = :estado, fecha_modificacion = CURRENT_TIMESTAMP, modificado_por = :modificado_por WHERE id = :id AND user_id = :user_id");
         $update->execute([
             ':titulo' => $titulo,
             ':descripcion' => $descripcion,
             ':localizacion' => $localizacion,
             ':estado' => $estado,
             ':id' => $incidencia_id,
-            ':user_id' => $_SESSION['user_id']
+            ':user_id' => $_SESSION['user_id'],
+            ':modificado_por' => $_SESSION['username'],
         ]);
         $message = "Incidencia actualizada correctamente.";
 

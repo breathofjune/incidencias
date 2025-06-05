@@ -16,12 +16,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $localizacion = trim($_POST['localizacion'] ?? '');
 
     if ($titulo && $descripcion) {
-        $stmt = $db->prepare("INSERT INTO incidencias (titulo, descripcion, localizacion, user_id) VALUES (:titulo, :descripcion, :localizacion, :user_id)");
+        $stmt = $db->prepare("INSERT INTO incidencias (titulo, descripcion, localizacion, user_id, creado_por) VALUES (:titulo, :descripcion, :localizacion, :user_id, :creado_por)");
         $stmt->execute([
             ':titulo' => $titulo,
             ':descripcion' => $descripcion,
             ':localizacion' => $localizacion,
-            ':user_id' => $_SESSION['user_id']
+            ':user_id' => $_SESSION['user_id'],
+            ':creado_por' => $_SESSION['username']
         ]);
 
         $incidencia_id = $db->lastInsertId();

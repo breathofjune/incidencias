@@ -6,7 +6,7 @@ let totalIncidencias = 0;
 function cargarIncidencias(pagina = 1) {
     const container = document.getElementById('incidencias-container');
     container.innerHTML = '<p>Cargando incidencias...</p>';
-    fetch(`api/incidencias.php?page=${pagina}&limit=${porPagina}`)
+    fetch(`api/incidencias_totales.php?page=${pagina}&limit=${porPagina}`)
         .then(res => res.json())
         .then(data => {
             if (data.error) {
