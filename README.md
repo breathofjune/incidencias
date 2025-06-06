@@ -10,3 +10,5 @@ Pasos para poder iniciar la aplicación:
 5. Finalmente, accede a [http://localhost:8000](http://localhost:8000) para ver la aplicación en funcionamiento.
 
 Si el puerto 8000 estuviera ocupado, se puede cambiar el docker-compose.yml
+
+Accediendo a http://localhost:8000/crear.php (despuées de haber creado la base de datos) se crean 25 incidencias de ejemplo bajo el usuario de "lucas" con contraseña "Azerty1".
