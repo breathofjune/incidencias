@@ -75,10 +75,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <label>Título:<br><input type="text" name="titulo" required></label><br><br>
         <label>Descripción:<br><textarea name="descripcion" required></textarea></label><br>
         <label>Localización:<br><input type="text" name="localizacion" required></label><br>
-        <label for="imagenes" class="boton-subir-imagenes">
+        <label for="nuevas_imagenes" class="boton-subir-imagenes">
             📷 Seleccionar imágenes
         </label>
-        <input type="file" id="imagenes" name="imagenes[]" accept="image/*" multiple hidden>
+        <input type="file" id="nuevas_imagenes" name="imagenes[]" accept="image/*" multiple hidden>
         <span id="contador-imagenes">Ningún archivo seleccionado</span>
 
         <br>
